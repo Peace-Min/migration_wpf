@@ -10,13 +10,9 @@
       Title="AccountListView"
        Background="{StaticResource backGround}"
  >
-    <Page.DataContext>
-        <ViewModel:AccountListViewModel/>
-    </Page.DataContext>
-
     <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="125,0,0,0" TextWrapping="Wrap" Text="{Binding }" VerticalAlignment="Center" Width="120" Height="178"/>
-        <TextBox HorizontalAlignment="Left" Margin="445,0,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Center" Width="120" Height="178"/>
+        <//>TextBox HorizontalAlignment="Left" Margin="125,0,0,0" TextWrapping="Wrap" Text="{Binding  }" VerticalAlignment="Center" Width="120" Height="178"/>
+        <//>TextBox HorizontalAlignment="Left" Margin="445,0,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Center" Width="120" Height="178"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="322,331,0,0" VerticalAlignment="Top" Height="52" Width="78" Click="Button_Click_1"/>
     </Grid>
 </Page>

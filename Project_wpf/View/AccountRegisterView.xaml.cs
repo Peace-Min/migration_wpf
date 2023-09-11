@@ -23,14 +23,16 @@ namespace Project_wpf.View
         public AccountRegisterView()
         {
             InitializeComponent();
+            ViewModel.AccountRegisterViewModel v = new ViewModel.AccountRegisterViewModel();
+            this.DataContext = v;
         }
 
         private void AccountRegisterCommit_Click(object sender, RoutedEventArgs e)
         {
-            string name = Convert.ToString(AccountRegisterName.Text);
-            int password = Convert.ToInt32(AccountRegisterPassword.Text);
-            //Console.WriteLine(name+password);
-            //ViewModel.AccountRegisterViewModel viewModel = new ViewModel.AccountRegisterViewModel(name, password);
+            ViewModel.AccountRegisterViewModel v = this.DataContext as ViewModel.AccountRegisterViewModel;
+            v.Name= Convert.ToString(AccountRegisterName.Text);
+            v.Password= Convert.ToInt32(AccountRegisterPassword.Text);
+            v.accountRegisterCommand.Execute((ViewModel.AccountRegisterViewModel)v);
             NavigationService.Navigate(
                new Uri("View/InitialListView.xaml", UriKind.Relative)
 

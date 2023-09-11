@@ -25,6 +25,8 @@ namespace Project_wpf.View
         Model.AccountModel accountModel=null;
         public AccountListView()
         {
+            ViewModel.AccountListViewModel v = new ViewModel.AccountListViewModel();
+            this.DataContext = v;
             InitializeComponent();
         }
 
@@ -32,7 +34,7 @@ namespace Project_wpf.View
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            accountList
+           
         }
     }
 }

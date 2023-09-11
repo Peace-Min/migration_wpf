@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_wpf.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,19 @@ namespace Project_wpf.ViewModel
 {
     public class AccountRegisterViewModel : Notifier
     {
-        public static string name { get; set; }
-        public static int password { get; set; }
+        public static string name;
+        public static int password;
 
+        public AccountRegisterViewModel() { }
         public Command accountRegisterCommand = new Command(AccountRegisterCommand, AccountBool);
+        public AccountRegisterViewModel(AccountRegisterViewModel v)
+        {
+            //AccountRegisterViewModel vv = new AccountRegisterViewModel(v.Name, v.Password);
+            //Model.AccountModel.accounts.Add(v);
+            Model.AccountModel vv = new Model.AccountModel(v.Name, v.Password);
+            Model.AccountModel.accounts.Add(vv);
+        }
+
         public string Name
         {
             get { return name; }
@@ -30,10 +40,9 @@ namespace Project_wpf.ViewModel
                 OnPropertyChanged("password");
             }
         }
-        public static void AccountRegisterCommand(object parameter)
+        public static void AccountRegisterCommand(object v)
         {
-            Model.AccountModel accountModel = new Model.AccountModel(name, password);
-            Model.AccountModel.accounts.Add(accountModel);
+            ViewModel.AccountRegisterViewModel vv = new ViewModel.AccountRegisterViewModel((ViewModel.AccountRegisterViewModel)v);
         }
         public static bool AccountBool(object parameter)
         {

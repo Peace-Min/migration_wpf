@@ -13,12 +13,10 @@ namespace Project_wpf.ViewModel
 {
     public class AccountListViewModel : ObservableCollection<Dictionary<string,int>>
     {
-            public static ObservableCollection<Dictionary<string, int>> accountData { get; set; }
-
+            List<Model.AccountModel> accountModels;
             public AccountListViewModel()
             {
-                accountData = new ObservableCollection<Dictionary<string, int>>();
-            accountData.Add(Model.AccountModel.accounts.name);
+                accountModels = Model.AccountModel.accounts; 
                     
             }
     }
