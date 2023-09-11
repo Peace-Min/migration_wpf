@@ -1,0 +1,17 @@
+﻿<Application x:Class="Project_wpf.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Project_wpf"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <LinearGradientBrush x:Key="backGround">
+            <GradientStop Color="White" Offset="0"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="inputGround">
+            <GradientStop Color="#FFE49E9E" Offset="0"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="idleGround">
+            <GradientStop Color="#FFB7AEAE" Offset="0"/>
+        </LinearGradientBrush>
+    </Application.Resources>
+</Application>
