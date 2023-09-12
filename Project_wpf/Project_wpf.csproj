@@ -58,25 +58,15 @@
     <Compile Include="Command.cs" />
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Notifier.cs" />
-    <Compile Include="ViewModel\AccountListViewModel.cs" />
     <Compile Include="ViewModel\AccountRegisterViewModel.cs" />
     <Compile Include="View\AccountListView.xaml.cs">
       <DependentUpon>AccountListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AccountMoneyControlView.xaml.cs">
-      <DependentUpon>AccountMoneyControlView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\AccountRegisterView.xaml.cs">
       <DependentUpon>AccountRegisterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AccountTransfer.xaml.cs">
-      <DependentUpon>AccountTransfer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\InitialListView.xaml.cs">
       <DependentUpon>InitialListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\LoginView.xaml.cs">
-      <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -94,23 +84,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AccountMoneyControlView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\AccountRegisterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AccountTransfer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\InitialListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

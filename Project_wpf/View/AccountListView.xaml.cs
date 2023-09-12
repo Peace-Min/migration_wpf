@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,18 +20,18 @@ namespace Project_wpf.View
     /// </summary>
     public partial class AccountListView : Page
     {
-        List<Model.AccountModel> accountList = Model.AccountModel.accounts;
-        Model.AccountModel accountModel=null;
         public AccountListView()
         {
             InitializeComponent();
+            DataContext=new ViewModel.AccountRegisterViewModel();
         }
 
-
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            accountList
+            NavigationService.Navigate(
+                new Uri("/View/InitialListView.xaml", UriKind.Relative)
+
+            );
         }
     }
 }

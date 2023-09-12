@@ -12,8 +12,8 @@
 
     <Grid>
         <Button Content="계좌 생성" HorizontalAlignment="Left" Height="59" Margin="31,185,0,0" VerticalAlignment="Top" Width="160"  FontSize="24" FontWeight="Bold" Click="Button_Click"/>
-        <Button Content="계좌 로그인" HorizontalAlignment="Left" Height="59" Margin="222,185,0,0" VerticalAlignment="Top" Width="160" FontSize="24" FontWeight="Bold" Click="Button_Click_1"/>
-        <Button Content="계좌 목록" HorizontalAlignment="Left" Height="59" Margin="416,185,0,0" VerticalAlignment="Top" Width="160"  FontSize="24" FontWeight="Bold" Click="Button_Click_2"/>
-        <Button Content="종료" HorizontalAlignment="Left" Height="59" Margin="608,185,0,0" VerticalAlignment="Top" Width="160"  FontSize="24" FontWeight="Bold" Click="Button_Click_3"/>
+        <Button Content="계좌 로그인" HorizontalAlignment="Left" Height="59" Margin="222,185,0,0" VerticalAlignment="Top" Width="160" FontSize="24" FontWeight="Bold" />
+        <Button Content="계좌 목록" HorizontalAlignment="Left" Height="59" Margin="416,185,0,0" VerticalAlignment="Top" Width="160"  FontSize="24" FontWeight="Bold" Click="AccountListVM" />
+        <Button Content="종료" HorizontalAlignment="Left" Height="59" Margin="608,185,0,0" VerticalAlignment="Top" Width="160"  FontSize="24" FontWeight="Bold" />
     </Grid>
 </Page>

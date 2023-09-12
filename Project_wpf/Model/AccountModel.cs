@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
@@ -7,31 +8,41 @@ using System.Threading.Tasks;
 
 namespace Project_wpf.Model
 {
-    internal class AccountModel : Notifier
+    public class AccountModel : Notifier
     {
-        public static List<AccountModel> accounts = new List<AccountModel>();
-        private double rate { get { return rate; } set { rate = 1.04; } } // 이율 
-        public string name { get { return name; } set { name = value; OnPropertyChanged("name"); } }
-        public int password { get { return password; } set { password = value; OnPropertyChanged("password"); } }
-        public int money { get { return money; } set { money = value; OnPropertyChanged("money"); } }
-        
-        public static AccountModel currentAccount { get { return currentAccount; } set { currentAccount = value; } }
-        //클래스,메서드,인터페이스,네임스페이스,상수=> 파스칼  변수,인수=>카멜
+        /*private List<Model.AccountModel> accounts;
+        public List<Model.AccountModel> Accounts { 
+            get { return accounts; }
+            set { accounts = value; OnPropertyChanged(nameof(Accounts)); }
+        }*/
+        private ObservableCollection<Model.AccountModel> accounts;
+        public ObservableCollection<Model.AccountModel> Accounts
+        {
+            get { return accounts; }
+            set { accounts = value; }
+        }
 
-        public List<AccountModel> Accounts { get { return accounts; } set { accounts = value; OnPropertyChanged("accounts"); } }
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set { name = value; OnPropertyChanged(nameof(name)); }
+        }
+
+        private int money;
+        public int Money
+        {
+            get { return money; }
+            set { money = value; OnPropertyChanged(nameof(money)); }
+        }
+
+        private int password;
+        public int Password
+        {
+            get { return password; }
+            set { password = value; OnPropertyChanged(nameof(password)); }
+        }
 
         public AccountModel() { }
-        public AccountModel(string name, int password)
-        {
-            this.name = name;
-            this.password = password;
-            this.money = 0;
-            //currentAccount = this;
-        }
-        public AccountModel FindAccountByName(string name)
-        {
-            // 이름으로 계정 검색 로직
-            return accounts.Find(a => a.name == name);
-        }
     }
 }

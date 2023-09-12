@@ -23,19 +23,15 @@ namespace Project_wpf.View
         public AccountRegisterView()
         {
             InitializeComponent();
+            DataContext = new ViewModel.AccountRegisterViewModel();
         }
 
-        private void AccountRegisterCommit_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string name = Convert.ToString(AccountRegisterName.Text);
-            int password = Convert.ToInt32(AccountRegisterPassword.Text);
-            //Console.WriteLine(name+password);
-            //ViewModel.AccountRegisterViewModel viewModel = new ViewModel.AccountRegisterViewModel(name, password);
             NavigationService.Navigate(
-               new Uri("View/InitialListView.xaml", UriKind.Relative)
+                new Uri("/View/InitialListView.xaml", UriKind.Relative)
 
-           );
-
+            );
         }
     }
 }

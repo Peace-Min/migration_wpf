@@ -8,21 +8,35 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AccountRegisterView"
-      Background="{StaticResource backGround}"
-      >
+      Background="{StaticResource backGround}">
+
     <Page.DataContext>
         <ViewModel:AccountRegisterViewModel/>
     </Page.DataContext>
 
+    <Grid Margin="87,0,147,102">
+        <TextBlock HorizontalAlignment="Left" Height="64" Margin="119,48,0,0" TextWrapping="Wrap" Text="이름" VerticalAlignment="Top" Width="139" Background="{StaticResource idleGround}" FontSize="24" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Height="63" Margin="119,127,0,0" TextWrapping="Wrap" Text="비밀번호" VerticalAlignment="Top" Width="139" Background="{StaticResource idleGround}" FontSize="24" FontWeight="Bold"/>
+        <TextBox x:Name="AccountRegisterName" HorizontalAlignment="Left" Margin="312,48,0,0" TextWrapping="Wrap" Text="{Binding TargetAccount.Name}" VerticalAlignment="Top" Height="64" Width="228" Background="{StaticResource inputGround}"/>
+        <TextBox x:Name="AccountRegisterPassword" HorizontalAlignment="Left" Margin="312,127,0,0" TextWrapping="Wrap" Text="{Binding TargetAccount.Password}" VerticalAlignment="Top" Height="63" Width="228" Background="{StaticResource inputGround}"/>
+        <Button x:Name="AccountRegisterCommit" Content="제출" HorizontalAlignment="Left" Margin="119,209,0,0" VerticalAlignment="Top" Height="66" Width="421" FontSize="24" FontWeight="Bold" Command="{Binding btn_cmd}">
 
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Height="64" Margin="119,112,0,0" TextWrapping="Wrap" Text="이름" VerticalAlignment="Top" Width="139" Background="{StaticResource idleGround}" FontSize="24" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Height="63" Margin="119,237,0,0" TextWrapping="Wrap" Text="비밀번호" VerticalAlignment="Top" Width="139" Background="{StaticResource idleGround}" FontSize="24" FontWeight="Bold"/>
-        <TextBox x:Name="AccountRegisterName" HorizontalAlignment="Left" Margin="312,112,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Height="64" Width="228" Background="{StaticResource inputGround}"/>
-        <TextBox x:Name="AccountRegisterPassword" HorizontalAlignment="Left" Margin="312,237,0,0" TextWrapping="Wrap" Text="{Binding Password}" VerticalAlignment="Top" Height="63" Width="228" Background="{StaticResource inputGround}"/>
-        <Button x:Name="AccountRegisterCommit" Content="제출" HorizontalAlignment="Left" Margin="119,327,0,0" VerticalAlignment="Top" Height="66" Width="421" FontSize="24" FontWeight="Bold" Command="{Binding accountRegisterCommand}" Click="AccountRegisterCommit_Click">
-      
         </Button>
+        <ListView x:Name="lstView" Background="#FFEDE9C5" ItemsSource="{Binding Accounts}" SelectionMode="Single" Margin="119,275,26,-127">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text=" - " Foreground="Blue"/>
+                        <TextBlock Text="{Binding Password}"/>
+                        <TextBlock Text=" - " Foreground="Blue"/>
+                        <TextBlock Text="{Binding Money}"/>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="43,232,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
     </Grid>
+
 </Page>

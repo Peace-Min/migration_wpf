@@ -1,43 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+
 
 namespace Project_wpf.ViewModel
 {
     public class AccountRegisterViewModel : Notifier
     {
-        public static string name { get; set; }
-        public static int password { get; set; }
-
-        public Command accountRegisterCommand = new Command(AccountRegisterCommand, AccountBool);
-        public string Name
+        private Model.AccountModel account;
+        //public List<Model.AccountModel> _accounts;
+        public Model.AccountModel TargetAccount
         {
-            get { return name; }
-            set
-            {
-                name = value;
-                OnPropertyChanged("name");
-            }
+            get { return account; }
+            set { account = value; OnPropertyChanged(nameof(account)); }
         }
-        public int Password
+        private ObservableCollection<Model.AccountModel> accounts;
+        public ObservableCollection<Model.AccountModel> Accounts
         {
-            get { return password; }
-            set
-            {
-                password = value;
-                OnPropertyChanged("password");
-            }
+            get { return accounts; }
+            set { accounts = value; }
         }
-        public static void AccountRegisterCommand(object parameter)
+        public Command btn_cmd {  get; set; }
+        public void AddAccount(object obj)
         {
-            Model.AccountModel accountModel = new Model.AccountModel(name, password);
-            Model.AccountModel.accounts.Add(accountModel);
+            Accounts.Add(TargetAccount); //Add it to thecollection
+            //accounts.Add(TargetAccount);
+            //_accounts.Add(TargetAccount);
+            //TargetAccount.Accounts = _accounts;
+            TargetAccount = new Model.AccountModel(); //resetting it.
         }
-        public static bool AccountBool(object parameter)
+        private bool CanExecute_func(object parameter)
         {
             return true;
+        }
+        public AccountRegisterViewModel()
+        {
+            Accounts = new ObservableCollection<Model.AccountModel>();
+            //Model.AccountModel m = new Model.AccountModel();
+            //accounts = m.Accounts;
+            TargetAccount = new Model.AccountModel();
+            btn_cmd = new Command(AddAccount,CanExecute_func);
         }
     }
 }
